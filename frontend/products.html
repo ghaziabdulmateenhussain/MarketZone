@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products | MarketZone</title>
+<meta name="description" content="MarketZone - Pakistan's multi-vendor online marketplace. Shop electronics, fashion, home goods and more from trusted sellers.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+<body data-page="products">
+<nav class="navbar navbar-expand-lg bg-body sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fs-3" href="index.html">Market<span>Zone</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mzNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mzNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-nav="index">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html" data-nav="products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html" data-nav="categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="seller-register.html" data-nav="seller-register">Become a Seller</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+      <form class="d-flex me-3 my-2 my-lg-0" role="search" onsubmit="event.preventDefault(); window.location.href='products.html?search='+encodeURIComponent(this.q.value);">
+        <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search products...">
+        <button class="btn btn-sm btn-primary" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <div class="d-flex align-items-center gap-2">
+        <button id="themeToggleBtn" class="btn btn-outline-secondary btn-sm" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        <a href="wishlist.html" class="btn btn-outline-secondary btn-sm position-relative" title="Wishlist">
+          <i class="bi bi-heart"></i>
+          <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+        </a>
+        <a href="cart.html" class="btn btn-outline-secondary btn-sm position-relative" title="Cart">
+          <i class="bi bi-cart3"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary d-none">0</span>
+        </a>
+        <div id="authArea"></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="container py-4">
+  <div class="row g-4">
+    <div class="col-lg-3">
+      <div class="bg-body p-3 rounded-4 shadow-sm sticky-top" style="top: 90px;">
+        <h6 class="mb-3">Filters</h6>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold">Category</label>
+          <select id="filterCategory" class="form-select form-select-sm">
+            <option value="">All Categories</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold">Price Range</label>
+          <div class="d-flex gap-2">
+            <input type="number" id="filterMinPrice" class="form-control form-control-sm" placeholder="Min">
+            <input type="number" id="filterMaxPrice" class="form-control form-control-sm" placeholder="Max">
+          </div>
+        </div>
+        <div class="mb-3">
+          <label class="form-label small fw-semibold">Minimum Rating</label>
+          <select id="filterRating" class="form-select form-select-sm">
+            <option value="">Any Rating</option>
+            <option value="4">4★ & above</option>
+            <option value="3">3★ & above</option>
+            <option value="2">2★ & above</option>
+          </select>
+        </div>
+        <button id="applyFilters" class="btn btn-primary btn-sm w-100 mb-2">Apply Filters</button>
+        <button id="resetFilters" class="btn btn-outline-secondary btn-sm w-100">Reset</button>
+      </div>
+    </div>
+    <div class="col-lg-9">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+        <h4 class="mb-0" id="resultsTitle">All Products</h4>
+        <select id="sortSelect" class="form-select form-select-sm w-auto">
+          <option value="">Newest First</option>
+          <option value="price_asc">Price: Low to High</option>
+          <option value="price_desc">Price: High to Low</option>
+          <option value="rating">Top Rated</option>
+          <option value="popular">Most Popular</option>
+        </select>
+      </div>
+      <div id="productsGrid" class="row g-3">
+        <div class="spinner-wrap w-100"><div class="spinner-border text-primary"></div></div>
+      </div>
+      <nav class="mt-4">
+        <ul id="pagination" class="pagination justify-content-center"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="mz-footer pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <h4 class="text-white">Market<span class="text-primary">Zone</span></h4>
+        <p class="small">Pakistan's growing multi-vendor marketplace — connecting trusted sellers with customers nationwide. Shop smart, sell easy.</p>
+        <div class="d-flex gap-3 fs-5">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Shop</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="products.html">All Products</a></li>
+          <li class="mb-2"><a href="categories.html">Categories</a></li>
+          <li class="mb-2"><a href="products.html?sort=popular">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Company</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="seller-register.html">Become a Seller</a></li>
+          <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+          <li class="mb-2"><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Legal</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
+          <li class="mb-2"><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Account</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="login.html">Login</a></li>
+          <li class="mb-2"><a href="register.html">Register</a></li>
+          <li class="mb-2"><a href="order-tracking.html">Track Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 MarketZone. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+let currentPage = 1;
+
+function getParams() {
+  return new URLSearchParams(window.location.search);
+}
+
+async function loadCategoryOptions() {
+  const select = document.getElementById('filterCategory');
+  try {
+    const cats = await MZ.request('/categories', { auth: false });
+    cats.forEach(c => {
+      const opt = document.createElement('option');
+      opt.value = c._id; opt.textContent = c.name;
+      select.appendChild(opt);
+    });
+    const params = getParams();
+    if (params.get('category')) select.value = params.get('category');
+  } catch (e) {}
+}
+
+async function loadProducts(page = 1) {
+  currentPage = page;
+  const grid = document.getElementById('productsGrid');
+  grid.innerHTML = '<div class="spinner-wrap w-100"><div class="spinner-border text-primary"></div></div>';
+
+  const params = getParams();
+  const query = new URLSearchParams();
+  query.set('page', page);
+  query.set('limit', 12);
+
+  const search = params.get('search');
+  if (search) { query.set('search', search); document.getElementById('resultsTitle').textContent = `Search results for "${search}"`; }
+
+  const category = document.getElementById('filterCategory').value || params.get('category');
+  if (category) query.set('category', category);
+
+  const minPrice = document.getElementById('filterMinPrice').value;
+  if (minPrice) query.set('minPrice', minPrice);
+  const maxPrice = document.getElementById('filterMaxPrice').value;
+  if (maxPrice) query.set('maxPrice', maxPrice);
+
+  const rating = document.getElementById('filterRating').value;
+  if (rating) query.set('rating', rating);
+
+  const sort = document.getElementById('sortSelect').value || params.get('sort');
+  if (sort) query.set('sort', sort);
+
+  try {
+    const data = await MZ.request(`/products?${query.toString()}`, { auth: false });
+    if (data.products.length === 0) {
+      grid.innerHTML = '<div class="col-12 text-center py-5"><i class="bi bi-inbox fs-1 text-muted"></i><p class="text-muted mt-2">No products found matching your filters.</p></div>';
+    } else {
+      grid.innerHTML = data.products.map(productCardHtml).join('');
+    }
+    renderPagination(data.page, data.pages);
+  } catch (e) {
+    grid.innerHTML = `<div class="col-12"><div class="alert alert-danger">Could not load products: ${e.message}</div></div>`;
+  }
+}
+
+function renderPagination(page, pages) {
+  const el = document.getElementById('pagination');
+  if (pages <= 1) { el.innerHTML = ''; return; }
+  let html = '';
+  for (let i = 1; i <= pages; i++) {
+    html += `<li class="page-item ${i === page ? 'active' : ''}"><a class="page-link" href="#" onclick="event.preventDefault(); loadProducts(${i}); window.scrollTo(0,0);">${i}</a></li>`;
+  }
+  el.innerHTML = html;
+}
+
+document.getElementById('applyFilters').addEventListener('click', () => loadProducts(1));
+document.getElementById('sortSelect').addEventListener('change', () => loadProducts(1));
+document.getElementById('resetFilters').addEventListener('click', () => {
+  document.getElementById('filterCategory').value = '';
+  document.getElementById('filterMinPrice').value = '';
+  document.getElementById('filterMaxPrice').value = '';
+  document.getElementById('filterRating').value = '';
+  document.getElementById('sortSelect').value = '';
+  history.replaceState(null, '', 'products.html');
+  loadProducts(1);
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  const params = getParams();
+  if (params.get('sort')) document.getElementById('sortSelect').value = params.get('sort');
+  await loadCategoryOptions();
+  loadProducts(1);
+});
+</script>
+
+</body>
+</html>

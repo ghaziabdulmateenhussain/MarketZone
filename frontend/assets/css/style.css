@@ -1,0 +1,56 @@
+/* MarketZone - minimal overrides on top of Bootstrap 5 */
+:root {
+  --mz-primary: #0d6efd;
+  --mz-dark: #1a1d29;
+  --mz-accent: #ff6b35;
+  --mz-radius: 0.75rem;
+}
+
+body {
+  background-color: #f7f8fa;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+[data-bs-theme="dark"] body { background-color: #14161f; }
+
+.navbar-brand { font-weight: 800; letter-spacing: -0.5px; }
+.navbar-brand span { color: var(--mz-accent); }
+
+.mz-hero {
+  background: linear-gradient(135deg, #0d6efd 0%, #6f42c1 100%);
+  color: #fff;
+  border-radius: 0 0 2rem 2rem;
+}
+
+.product-card { border-radius: var(--mz-radius); overflow: hidden; transition: transform .2s ease, box-shadow .2s ease; border: 1px solid rgba(0,0,0,.06); }
+.product-card:hover { transform: translateY(-6px); box-shadow: 0 1rem 2rem rgba(0,0,0,.1); }
+.product-card img { height: 200px; object-fit: cover; width: 100%; background: #f1f1f1; }
+
+.category-card { border-radius: var(--mz-radius); overflow: hidden; position: relative; text-decoration: none; }
+.category-card img { height: 140px; object-fit: cover; width: 100%; transition: transform .3s; }
+.category-card:hover img { transform: scale(1.08); }
+.category-card .cat-label { background: rgba(0,0,0,.55); color: #fff; padding: .5rem; text-align: center; font-weight: 600; }
+
+.badge-discount { position: absolute; top: .5rem; left: .5rem; }
+.wishlist-btn { position: absolute; top: .5rem; right: .5rem; background: #fff; border-radius: 50%; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border: none; box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.wishlist-btn.active i { color: #dc3545 !important; }
+
+.rating-stars { color: #ffc107; }
+.price-old { text-decoration: line-through; color: #999; font-size: .9rem; }
+
+.mz-footer { background: var(--mz-dark); color: #cfd2dc; }
+.mz-footer a { color: #cfd2dc; text-decoration: none; }
+.mz-footer a:hover { color: #fff; }
+
+.spinner-wrap { min-height: 200px; display: flex; align-items: center; justify-content: center; }
+.cursor-pointer { cursor: pointer; }
+.step-badge { width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
+
+.dashboard-sidebar .nav-link { color: #333; border-radius: .5rem; }
+.dashboard-sidebar .nav-link.active { background: var(--mz-primary); color: #fff; }
+[data-bs-theme="dark"] .dashboard-sidebar .nav-link { color: #dfe1e8; }
+
+.thumb-img { width: 70px; height: 70px; object-fit: cover; border-radius: .5rem; cursor: pointer; border: 2px solid transparent; }
+.thumb-img.active { border-color: var(--mz-primary); }
+
+.toast-container { z-index: 1090; }

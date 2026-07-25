@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | MarketZone</title>
+<meta name="description" content="MarketZone - Pakistan's multi-vendor online marketplace. Shop electronics, fashion, home goods and more from trusted sellers.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+
+</head>
+<body data-page="login">
+<nav class="navbar navbar-expand-lg bg-body sticky-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fs-3" href="index.html">Market<span>Zone</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mzNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mzNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-3">
+        <li class="nav-item"><a class="nav-link" href="index.html" data-nav="index">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="products.html" data-nav="products">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="categories.html" data-nav="categories">Categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="seller-register.html" data-nav="seller-register">Become a Seller</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html" data-nav="contact">Contact</a></li>
+      </ul>
+      <form class="d-flex me-3 my-2 my-lg-0" role="search" onsubmit="event.preventDefault(); window.location.href='products.html?search='+encodeURIComponent(this.q.value);">
+        <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search products...">
+        <button class="btn btn-sm btn-primary" type="submit"><i class="bi bi-search"></i></button>
+      </form>
+      <div class="d-flex align-items-center gap-2">
+        <button id="themeToggleBtn" class="btn btn-outline-secondary btn-sm" title="Toggle dark mode"><i class="bi bi-moon-stars"></i></button>
+        <a href="wishlist.html" class="btn btn-outline-secondary btn-sm position-relative" title="Wishlist">
+          <i class="bi bi-heart"></i>
+          <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger d-none">0</span>
+        </a>
+        <a href="cart.html" class="btn btn-outline-secondary btn-sm position-relative" title="Cart">
+          <i class="bi bi-cart3"></i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary d-none">0</span>
+        </a>
+        <div id="authArea"></div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<main>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="bg-body p-4 p-md-5 rounded-4 shadow-sm">
+        <h3 class="text-center mb-4">Login to MarketZone</h3>
+        <div id="loginAlert"></div>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label class="form-label small">Email Address</label>
+            <input type="email" id="loginEmail" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label small">Password</label>
+            <input type="password" id="loginPassword" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p class="text-center small mt-3 mb-0">Don't have an account? <a href="register.html">Sign up</a></p>
+        <div class="alert alert-light border small mt-3 mb-0">
+          <b>Demo accounts:</b><br>
+          Admin: ghaziabdulmateen786@gmail.com / iloveAllah<br>
+          Seller: seller@marketzone.com / seller123<br>
+          Customer: customer@marketzone.com / customer123
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="mz-footer pt-5 pb-3 mt-5">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <h4 class="text-white">Market<span class="text-primary">Zone</span></h4>
+        <p class="small">Pakistan's growing multi-vendor marketplace — connecting trusted sellers with customers nationwide. Shop smart, sell easy.</p>
+        <div class="d-flex gap-3 fs-5">
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Shop</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="products.html">All Products</a></li>
+          <li class="mb-2"><a href="categories.html">Categories</a></li>
+          <li class="mb-2"><a href="products.html?sort=popular">Best Sellers</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Company</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="seller-register.html">Become a Seller</a></li>
+          <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+          <li class="mb-2"><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Legal</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="privacy.html">Privacy Policy</a></li>
+          <li class="mb-2"><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <h6 class="text-white">Account</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="login.html">Login</a></li>
+          <li class="mb-2"><a href="register.html">Register</a></li>
+          <li class="mb-2"><a href="order-tracking.html">Track Order</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="border-secondary">
+    <p class="text-center small mb-0">&copy; 2026 MarketZone. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/config.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const alertBox = document.getElementById('loginAlert');
+  alertBox.innerHTML = '';
+  try {
+    const data = await MZ.request('/auth/login', {
+      method: 'POST', auth: false,
+      body: { email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value },
+    });
+    MZ.setAuth(data.user, data.token);
+    MZ.toast('Login successful!');
+    const redirect = new URLSearchParams(window.location.search).get('redirect');
+    let dest = redirect || 'index.html';
+    if (!redirect) {
+      if (data.user.role === 'admin') dest = 'dashboard-admin.html';
+      else if (data.user.role === 'seller') dest = 'dashboard-seller.html';
+    }
+    setTimeout(() => window.location.href = dest, 800);
+  } catch (err) {
+    alertBox.innerHTML = `<div class="alert alert-danger">${err.message}</div>`;
+  }
+});
+</script>
+
+</body>
+</html>
