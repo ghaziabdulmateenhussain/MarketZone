@@ -6,12 +6,12 @@ const Product = require('./models/Product');
 const slugify = require('./utils/slugify');
 
 const categoriesData = [
-  { name: 'Electronics', image: 'https://loremflickr.com/400/300/electronics' },
-  { name: 'Fashion', image: 'https://loremflickr.com/400/300/fashion' },
-  { name: 'Home & Living', image: 'https://loremflickr.com/400/300/homedecor' },
-  { name: 'Beauty & Health', image: 'https://loremflickr.com/400/300/cosmetics' },
-  { name: 'Sports & Outdoors', image: 'https://loremflickr.com/400/300/sports' },
-  { name: 'Books & Stationery', image: 'https://loremflickr.com/400/300/books' },
+  { name: 'Electronics', image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=300&fit=crop' },
+  { name: 'Fashion', image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=300&fit=crop' },
+  { name: 'Home & Living', image: 'https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400&h=300&fit=crop' },
+  { name: 'Beauty & Health', image: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&h=300&fit=crop' },
+  { name: 'Sports & Outdoors', image: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop' },
+  { name: 'Books & Stationery', image: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=400&h=300&fit=crop' },
 ];
 
 async function seed() {
@@ -56,18 +56,18 @@ async function seed() {
   const existingProducts = await Product.countDocuments();
   if (existingProducts === 0) {
     const sampleProducts = [
-      { name: 'Wireless Bluetooth Headphones', price: 4999, discountPrice: 3499, category: catDocs[0]._id, stock: 50, isFeatured: true, images: ['https://loremflickr.com/500/500/headphones'] },
-      { name: 'Smart Fitness Watch', price: 8999, discountPrice: 6999, category: catDocs[0]._id, stock: 30, isFeatured: true, images: ['https://loremflickr.com/500/500/smartwatch'] },
-      { name: "Men's Casual Denim Jacket", price: 3499, category: catDocs[1]._id, stock: 40, isFeatured: true, images: ['https://loremflickr.com/500/500/denimjacket'] },
-      { name: "Women's Summer Floral Dress", price: 2799, discountPrice: 1999, category: catDocs[1]._id, stock: 25, isFeatured: true, images: ['https://loremflickr.com/500/500/summerdress'] },
-      { name: 'Non-Stick Cookware Set (5pc)', price: 5499, category: catDocs[2]._id, stock: 20, images: ['https://loremflickr.com/500/500/cookware'] },
-      { name: 'LED Table Lamp', price: 1299, category: catDocs[2]._id, stock: 60, images: ['https://loremflickr.com/500/500/tablelamp'] },
-      { name: 'Organic Face Serum', price: 1899, discountPrice: 1499, category: catDocs[3]._id, stock: 45, isFeatured: true, images: ['https://loremflickr.com/500/500/faceserum'] },
-      { name: 'Herbal Shampoo & Conditioner Set', price: 1599, category: catDocs[3]._id, stock: 35, images: ['https://loremflickr.com/500/500/shampoo'] },
-      { name: 'Yoga Mat with Carry Strap', price: 1999, category: catDocs[4]._id, stock: 40, images: ['https://loremflickr.com/500/500/yogamat'] },
-      { name: 'Adjustable Dumbbell Set', price: 6999, category: catDocs[4]._id, stock: 15, images: ['https://loremflickr.com/500/500/dumbbell'] },
-      { name: 'Bestselling Novel Collection (3 Books)', price: 2199, category: catDocs[5]._id, stock: 50, images: ['https://loremflickr.com/500/500/novelbooks'] },
-      { name: 'Premium Leather Notebook', price: 899, discountPrice: 699, category: catDocs[5]._id, stock: 70, images: ['https://loremflickr.com/500/500/notebook'] },
+      { name: 'Wireless Bluetooth Headphones', price: 4999, discountPrice: 3499, category: catDocs[0]._id, stock: 50, isFeatured: true, images: ['https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&h=500&fit=crop'] },
+      { name: 'Smart Fitness Watch', price: 8999, discountPrice: 6999, category: catDocs[0]._id, stock: 30, isFeatured: true, images: ['https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&h=500&fit=crop'] },
+      { name: "Men's Casual Denim Jacket", price: 3499, category: catDocs[1]._id, stock: 40, isFeatured: true, images: ['https://images.unsplash.com/photo-1551028719-00167b16eac5?w=500&h=500&fit=crop'] },
+      { name: "Women's Summer Floral Dress", price: 2799, discountPrice: 1999, category: catDocs[1]._id, stock: 25, isFeatured: true, images: ['https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&h=500&fit=crop'] },
+      { name: 'Non-Stick Cookware Set (5pc)', price: 5499, category: catDocs[2]._id, stock: 20, images: ['https://images.unsplash.com/photo-1584990347449-a5d9f800a783?w=500&h=500&fit=crop'] },
+      { name: 'LED Table Lamp', price: 1299, category: catDocs[2]._id, stock: 60, images: ['https://images.unsplash.com/photo-1543198126-42aab476651f?w=500&h=500&fit=crop'] },
+      { name: 'Organic Face Serum', price: 1899, discountPrice: 1499, category: catDocs[3]._id, stock: 45, isFeatured: true, images: ['https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=500&h=500&fit=crop'] },
+      { name: 'Herbal Shampoo & Conditioner Set', price: 1599, category: catDocs[3]._id, stock: 35, images: ['https://images.unsplash.com/photo-1556228720-195a672e8a03?w=500&h=500&fit=crop'] },
+      { name: 'Yoga Mat with Carry Strap', price: 1999, category: catDocs[4]._id, stock: 40, images: ['https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop'] },
+      { name: 'Adjustable Dumbbell Set', price: 6999, category: catDocs[4]._id, stock: 15, images: ['https://images.unsplash.com/photo-1638536532686-d610adfc8e5c?w=500&h=500&fit=crop'] },
+      { name: 'Bestselling Novel Collection (3 Books)', price: 2199, category: catDocs[5]._id, stock: 50, images: ['https://images.unsplash.com/photo-1512820790803-83ca734da794?w=500&h=500&fit=crop'] },
+      { name: 'Premium Leather Notebook', price: 899, discountPrice: 699, category: catDocs[5]._id, stock: 70, images: ['https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=500&h=500&fit=crop'] },
     ];
     for (const p of sampleProducts) {
       await Product.create({
