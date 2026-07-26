@@ -6,12 +6,12 @@ const Product = require('./models/Product');
 const slugify = require('./utils/slugify');
 
 const categoriesData = [
-  { name: 'Electronics', image: 'https://picsum.photos/seed/mz-electronics/400/300' },
-  { name: 'Fashion', image: 'https://picsum.photos/seed/mz-fashion/400/300' },
-  { name: 'Home & Living', image: 'https://picsum.photos/seed/mz-home/400/300' },
-  { name: 'Beauty & Health', image: 'https://picsum.photos/seed/mz-beauty/400/300' },
-  { name: 'Sports & Outdoors', image: 'https://picsum.photos/seed/mz-sports/400/300' },
-  { name: 'Books & Stationery', image: 'https://picsum.photos/seed/mz-books/400/300' },
+  { name: 'Electronics', image: 'https://loremflickr.com/400/300/electronics' },
+  { name: 'Fashion', image: 'https://loremflickr.com/400/300/fashion' },
+  { name: 'Home & Living', image: 'https://loremflickr.com/400/300/homedecor' },
+  { name: 'Beauty & Health', image: 'https://loremflickr.com/400/300/cosmetics' },
+  { name: 'Sports & Outdoors', image: 'https://loremflickr.com/400/300/sports' },
+  { name: 'Books & Stationery', image: 'https://loremflickr.com/400/300/books' },
 ];
 
 async function seed() {
@@ -56,18 +56,18 @@ async function seed() {
   const existingProducts = await Product.countDocuments();
   if (existingProducts === 0) {
     const sampleProducts = [
-      { name: 'Wireless Bluetooth Headphones', price: 4999, discountPrice: 3499, category: catDocs[0]._id, stock: 50, isFeatured: true, images: ['https://picsum.photos/seed/mz-headphones/500/500'] },
-      { name: 'Smart Fitness Watch', price: 8999, discountPrice: 6999, category: catDocs[0]._id, stock: 30, isFeatured: true, images: ['https://picsum.photos/seed/mz-watch/500/500'] },
-      { name: "Men's Casual Denim Jacket", price: 3499, category: catDocs[1]._id, stock: 40, isFeatured: true, images: ['https://picsum.photos/seed/mz-jacket/500/500'] },
-      { name: "Women's Summer Floral Dress", price: 2799, discountPrice: 1999, category: catDocs[1]._id, stock: 25, isFeatured: true, images: ['https://picsum.photos/seed/mz-dress/500/500'] },
-      { name: 'Non-Stick Cookware Set (5pc)', price: 5499, category: catDocs[2]._id, stock: 20, images: ['https://picsum.photos/seed/mz-cookware/500/500'] },
-      { name: 'LED Table Lamp', price: 1299, category: catDocs[2]._id, stock: 60, images: ['https://picsum.photos/seed/mz-lamp/500/500'] },
-      { name: 'Organic Face Serum', price: 1899, discountPrice: 1499, category: catDocs[3]._id, stock: 45, isFeatured: true, images: ['https://picsum.photos/seed/mz-serum/500/500'] },
-      { name: 'Herbal Shampoo & Conditioner Set', price: 1599, category: catDocs[3]._id, stock: 35, images: ['https://picsum.photos/seed/mz-shampoo/500/500'] },
-      { name: 'Yoga Mat with Carry Strap', price: 1999, category: catDocs[4]._id, stock: 40, images: ['https://picsum.photos/seed/mz-yoga/500/500'] },
-      { name: 'Adjustable Dumbbell Set', price: 6999, category: catDocs[4]._id, stock: 15, images: ['https://picsum.photos/seed/mz-dumbbell/500/500'] },
-      { name: 'Bestselling Novel Collection (3 Books)', price: 2199, category: catDocs[5]._id, stock: 50, images: ['https://picsum.photos/seed/mz-books-cover/500/500'] },
-      { name: 'Premium Leather Notebook', price: 899, discountPrice: 699, category: catDocs[5]._id, stock: 70, images: ['https://picsum.photos/seed/mz-notebook/500/500'] },
+      { name: 'Wireless Bluetooth Headphones', price: 4999, discountPrice: 3499, category: catDocs[0]._id, stock: 50, isFeatured: true, images: ['https://loremflickr.com/500/500/headphones'] },
+      { name: 'Smart Fitness Watch', price: 8999, discountPrice: 6999, category: catDocs[0]._id, stock: 30, isFeatured: true, images: ['https://loremflickr.com/500/500/smartwatch'] },
+      { name: "Men's Casual Denim Jacket", price: 3499, category: catDocs[1]._id, stock: 40, isFeatured: true, images: ['https://loremflickr.com/500/500/denimjacket'] },
+      { name: "Women's Summer Floral Dress", price: 2799, discountPrice: 1999, category: catDocs[1]._id, stock: 25, isFeatured: true, images: ['https://loremflickr.com/500/500/summerdress'] },
+      { name: 'Non-Stick Cookware Set (5pc)', price: 5499, category: catDocs[2]._id, stock: 20, images: ['https://loremflickr.com/500/500/cookware'] },
+      { name: 'LED Table Lamp', price: 1299, category: catDocs[2]._id, stock: 60, images: ['https://loremflickr.com/500/500/tablelamp'] },
+      { name: 'Organic Face Serum', price: 1899, discountPrice: 1499, category: catDocs[3]._id, stock: 45, isFeatured: true, images: ['https://loremflickr.com/500/500/faceserum'] },
+      { name: 'Herbal Shampoo & Conditioner Set', price: 1599, category: catDocs[3]._id, stock: 35, images: ['https://loremflickr.com/500/500/shampoo'] },
+      { name: 'Yoga Mat with Carry Strap', price: 1999, category: catDocs[4]._id, stock: 40, images: ['https://loremflickr.com/500/500/yogamat'] },
+      { name: 'Adjustable Dumbbell Set', price: 6999, category: catDocs[4]._id, stock: 15, images: ['https://loremflickr.com/500/500/dumbbell'] },
+      { name: 'Bestselling Novel Collection (3 Books)', price: 2199, category: catDocs[5]._id, stock: 50, images: ['https://loremflickr.com/500/500/novelbooks'] },
+      { name: 'Premium Leather Notebook', price: 899, discountPrice: 699, category: catDocs[5]._id, stock: 70, images: ['https://loremflickr.com/500/500/notebook'] },
     ];
     for (const p of sampleProducts) {
       await Product.create({
@@ -81,9 +81,6 @@ async function seed() {
 
   console.log('Seeding complete!');
   process.exit(0);
-}
-
-seed().catch((err) => { console.error(err); process.exit(1); });
 }
 
 seed().catch((err) => { console.error(err); process.exit(1); });
